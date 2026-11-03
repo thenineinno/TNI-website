@@ -90,9 +90,17 @@ h1 .hl{color:var(--green-dark);background:linear-gradient(transparent 68%,rgba(1
 
 .updates{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
 .updates-copy{position:sticky;top:110px}
-.fb-frame{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;min-height:640px;display:flex;justify-content:center;align-items:center;max-width:500px;width:100%;justify-self:end}
-.fb-frame iframe{border:0;width:100%;height:700px}
-.fb-fallback{padding:24px;text-align:center;color:var(--muted)}
+.fb-frame{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;max-width:500px;width:100%;justify-self:end}
+.fb-card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:44px 28px}
+.fb-card .mark{width:96px;height:auto;margin-bottom:18px}
+.fb-name{font-weight:700;font-size:1.25rem;margin:0}
+.fb-sub{display:flex;align-items:center;gap:4px;color:#1877F2;font-weight:600;font-size:.9rem;margin:2px 0 14px}
+.fb-sub .ic{width:18px;height:18px;fill:currentColor}
+.fb-text{color:var(--muted);max-width:26em}
+.fb-page{display:block;width:100%}
+.fb-page,.fb-page span,.fb-page iframe{width:100%!important;max-width:500px}
+.fb-frame:not(.fb-ok) .fb-page{height:0;overflow:hidden}
+.fb-frame.fb-ok .fb-card{display:none}
 
 .table-wrap{margin-top:32px;overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
 .projects{width:100%;border-collapse:collapse;min-width:620px;font-size:.98rem}

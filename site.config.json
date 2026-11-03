@@ -6,8 +6,12 @@
   "legalNameEn": "The Nine Innovation Company Limited",
   "taxId": "0905565003328",
   "facebookUrl": "https://www.facebook.com/profile.php?id=61594235379189",
+  "facebookPageId": "61594235379189",
   "messengerUrl": "https://m.me/61594235379189",
-  "phones": ["092-835-9877", "097-360-5888"],
+  "phones": [
+    "092-835-9877",
+    "097-360-5888"
+  ],
   "email": "thenine.innovation@gmail.com",
   "addressTh": "66 ซอยเจียร บุญโชติอุทิศ ตำบลคอหงส์ อำเภอหาดใหญ่ จังหวัดสงขลา 90110",
   "addressEn": "66 Soi Chian Boonchot-Uthit, Kho Hong, Hat Yai, Songkhla 90110",
@@ -16,5 +20,14 @@
   "addressRegion": "Songkhla",
   "postalCode": "90110",
   "googleMapsEmbedUrl": "https://www.google.com/maps?q=66+%E0%B8%8B%E0%B8%AD%E0%B8%A2%E0%B9%80%E0%B8%88%E0%B8%B5%E0%B8%A2%E0%B8%A3+%E0%B8%9A%E0%B8%B8%E0%B8%8D%E0%B9%82%E0%B8%8A%E0%B8%95%E0%B8%B4%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%B4%E0%B8%A8+%E0%B8%84%E0%B8%AD%E0%B8%AB%E0%B8%87%E0%B8%AA%E0%B9%8C+%E0%B8%AB%E0%B8%B2%E0%B8%94%E0%B9%83%E0%B8%AB%E0%B8%8D%E0%B9%88+%E0%B8%AA%E0%B8%87%E0%B8%82%E0%B8%A5%E0%B8%B2+90110&output=embed",
-  "areaServed": ["Songkhla", "Phuket", "Krabi", "Surat Thani", "Trang", "Yala", "Pattani", "Southern Thailand"]
+  "areaServed": [
+    "Songkhla",
+    "Phuket",
+    "Krabi",
+    "Surat Thani",
+    "Trang",
+    "Yala",
+    "Pattani",
+    "Southern Thailand"
+  ]
 }

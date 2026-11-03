@@ -15,19 +15,27 @@
   document.querySelectorAll('[data-lang]').forEach((a) =>
     a.addEventListener('click', () => { try { localStorage.setItem('lang', a.dataset.lang); } catch {} }));
 
-  // Facebook Page Plugin — loads only when the section scrolls near view; shows latest page posts.
-  const box = document.querySelector('[data-fb-page]');
+  // Facebook feed via the official JS SDK. The SDK fires "xfbml.render" when done, so we can tell
+  // whether the feed really appeared; if not (blocked by the browser, unsupported page, etc.)
+  // the branded "Follow us" card stays visible instead of an empty box.
+  const box = document.querySelector('.fb-frame');
+  const fail = () => box.classList.add('fb-failed');
   const loadFb = () => {
     if (box.dataset.loaded) return; box.dataset.loaded = 1;
-    const w = Math.max(180, Math.min(500, Math.round(box.clientWidth)));
-    const p = new URLSearchParams({ href: box.dataset.fbPage, tabs: 'timeline', width: w, height: 700,
-      small_header: 'false', adapt_container_width: 'true', hide_cover: 'false', show_facepile: 'false', locale: box.dataset.locale });
-    const f = document.createElement('iframe');
-    f.src = 'https://www.facebook.com/plugins/page.php?' + p;
-    f.title = 'Facebook — Nine Innovation'; f.loading = 'lazy';
-    f.allow = 'encrypted-media; clipboard-write'; f.setAttribute('scrolling', 'no');
-    f.onload = () => box.querySelector('.fb-fallback')?.remove();
-    box.appendChild(f);
+    const timer = setTimeout(fail, 10000);
+    window.fbAsyncInit = () => {
+      FB.init({ xfbml: true, version: 'v24.0' });
+      FB.Event.subscribe('xfbml.render', () => {
+        const f = box.querySelector('.fb-page iframe');
+        if (f && f.offsetHeight > 120) { clearTimeout(timer); box.classList.add('fb-ok'); }
+        else { clearTimeout(timer); fail(); }
+      });
+    };
+    const s = document.createElement('script');
+    s.async = true; s.defer = true; s.crossOrigin = 'anonymous';
+    s.src = `https://connect.facebook.net/${box.dataset.fbLocale}/sdk.js`;
+    s.onerror = () => { clearTimeout(timer); fail(); };
+    document.body.appendChild(s);
   };
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { loadFb(); io.disconnect(); } }), { rootMargin: '400px' });

@@ -132,6 +132,7 @@ ${ld(org)}
 ${ld(site)}
 </head>
 <body>
+<div id="fb-root"></div>
 <a class="skip" href="#main">${esc(t.skip)}</a>
 
 <header class="site-header" id="top">
@@ -198,8 +199,17 @@ ${ld(site)}
         <p class="body">${txt(t.updates.lead)}</p>
         <a class="btn btn-primary" href="${esc(cfg.facebookUrl)}" target="_blank" rel="noopener">${icon('facebook')}${esc(t.updates.follow)}</a>
       </div>
-      <div class="fb-frame" data-fb-page="${esc(cfg.facebookUrl)}" data-locale="${t.locale}">
-        <a class="fb-fallback" href="${esc(cfg.facebookUrl)}" target="_blank" rel="noopener">${esc(t.updates.fallback)}</a>
+      <div class="fb-frame" data-fb-locale="${t.locale}">
+        <div class="fb-card">
+          ${MARK}
+          <p class="fb-name">${esc(cfg.brandName)}</p>
+          <p class="fb-sub">${icon('facebook')}Facebook</p>
+          <p class="fb-text">${esc(t.updates.cardText)}</p>
+          <a class="btn btn-primary" href="${esc(cfg.facebookUrl)}" target="_blank" rel="noopener">${esc(t.updates.follow)}</a>
+        </div>
+        <div class="fb-page" data-href="https://www.facebook.com/${esc(cfg.facebookPageId)}" data-tabs="timeline" data-width="500" data-height="700" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-lazy="true">
+          <blockquote cite="${esc(cfg.facebookUrl)}" class="fb-xfbml-parse-ignore"><a href="${esc(cfg.facebookUrl)}">${esc(cfg.brandName)}</a></blockquote>
+        </div>
       </div>
     </div>
   </section>
