@@ -1,0 +1,191 @@
+{
+  "lang": "en",
+  "locale": "en_US",
+  "path": "/en/",
+  "meta": {
+    "title": "The Nine Innovation | Lift & Escalator Installation, Repair and Maintenance in Hat Yai, Songkhla, Phuket & Southern Thailand",
+    "description": "The Nine Innovation Co., Ltd. installs, modernizes, repairs and maintains lifts and escalators — passenger, freight, hospital and home lifts, plus spare parts. Head office in Hat Yai, branch in Phuket, serving all of Southern Thailand.",
+    "keywords": "lift Hat Yai, elevator installation Songkhla, elevator repair Phuket, lift maintenance, escalator, freight lift, home lift, hospital lift, elevator spare parts, Southern Thailand, The Nine Innovation"
+  },
+  "skip": "Skip to content",
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "updates": "Updates",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "langSwitch": {
+    "label": "TH",
+    "aria": "เปลี่ยนเป็นภาษาไทย"
+  },
+  "hero": {
+    "eyebrow": "THE NINE INNOVATION",
+    "title": "Lifts & escalators,<br><span class=\"hl\">end to end</span>, across the South",
+    "lead": "Installation, modernization, repair and maintenance of lifts and escalators of all brands — by experienced technicians, safely and to standard.",
+    "ctaPrimary": "Get a free quote",
+    "ctaSecondary": "Our services",
+    "stats": [
+      {
+        "n": "10+",
+        "l": "Projects that trust us"
+      },
+      {
+        "n": "38",
+        "l": "Lift units installed & modernized"
+      },
+      {
+        "n": "7",
+        "l": "Southern provinces"
+      }
+    ]
+  },
+  "about": {
+    "kicker": "About",
+    "title": "The Nine Innovation Company Limited",
+    "body": [
+      "The Nine Innovation Co., Ltd. was founded to provide installation, modernization, repair and maintenance of lifts and escalators, including freight lifts and related spare parts.",
+      "Our head office is in Hat Yai, Songkhla, with a branch in Phuket and a service team covering all of Southern Thailand.",
+      "In 2025 we serve lifts and escalators of many brands and types throughout the southern region."
+    ],
+    "visionTitle": "Vision",
+    "vision": "To be the region's leading lift and escalator service provider, with quality, safety and customer satisfaction at our core.",
+    "missionTitle": "Mission",
+    "mission": [
+      "Respond to customer needs quickly, safely and precisely",
+      "Continuously raise and develop our team's capabilities",
+      "Use innovation and technology to improve service efficiency"
+    ]
+  },
+  "services": {
+    "kicker": "Services",
+    "title": "Our services",
+    "items": [
+      {
+        "icon": "lift",
+        "title": "Lifts",
+        "text": "Supply and installation of passenger lifts, glass/panoramic lifts, freight lifts, hospital bed lifts, car lifts, home lifts and dumbwaiters."
+      },
+      {
+        "icon": "escalator",
+        "title": "Escalators",
+        "text": "Supply and installation of escalators, with maintenance, modernization and ongoing after-sales service by experienced specialists."
+      },
+      {
+        "icon": "gear",
+        "title": "Spare parts & maintenance",
+        "text": "Lift and escalator spare parts, plus modernization of older lifts for more efficient and safer operation."
+      },
+      {
+        "icon": "hand",
+        "title": "After-sales service",
+        "text": "Routine inspections, consulting and emergency call-outs by our expert team."
+      }
+    ]
+  },
+  "projects": {
+    "kicker": "Projects",
+    "title": "Track record",
+    "lead": "Some of the hospitals, hotels and shopping centres across Southern Thailand that trust us.",
+    "cols": {
+      "no": "No.",
+      "name": "Project",
+      "place": "Location",
+      "qty": "Units",
+      "work": "Scope"
+    },
+    "work": {
+      "inst": "Installation",
+      "mod": "Modernization"
+    },
+    "prov": "",
+    "asOf": "Data as of 7 April 2025",
+    "items": [
+      {
+        "name": "Phuket PAO Hospital",
+        "place": "Phuket",
+        "qty": 11,
+        "work": "mod"
+      },
+      {
+        "name": "Krabi Nakharin International Hospital",
+        "place": "Krabi",
+        "qty": 14,
+        "work": "inst"
+      },
+      {
+        "name": "Anadaburi Hotel",
+        "place": "Surat Thani",
+        "qty": 1,
+        "work": "mod"
+      },
+      {
+        "name": "Piman Hotel",
+        "place": "Songkhla",
+        "qty": 1,
+        "work": "inst"
+      },
+      {
+        "name": "Grand Plaza Hotel",
+        "place": "Songkhla",
+        "qty": 3,
+        "work": "mod"
+      },
+      {
+        "name": "Holiday Hotel",
+        "place": "Songkhla",
+        "qty": 2,
+        "work": "mod"
+      },
+      {
+        "name": "Sriyala Hotel",
+        "place": "Yala",
+        "qty": 1,
+        "work": "mod"
+      },
+      {
+        "name": "Hatyai Hospital",
+        "place": "Songkhla",
+        "qty": 1,
+        "work": "inst"
+      },
+      {
+        "name": "Daina Shopping Mall",
+        "place": "Pattani",
+        "qty": 1,
+        "work": "inst"
+      },
+      {
+        "name": "Wattanapat Hospital Trang",
+        "place": "Trang",
+        "qty": 3,
+        "work": "mod"
+      }
+    ]
+  },
+  "updates": {
+    "kicker": "Updates",
+    "title": "Latest from Facebook",
+    "lead": "Follow our projects, activities and announcements. New posts on our page appear here automatically.",
+    "follow": "Follow us on Facebook",
+    "fallback": "The feed couldn't load (it may be blocked by your browser) — open our Facebook page"
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Contact & location",
+    "lead": "Request a quote, book an inspection or report a breakdown — reach us through any channel below.",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Head office",
+    "branch": "Branch",
+    "branchText": "Phuket",
+    "facebook": "Facebook",
+    "messenger": "Message us on Messenger",
+    "map": "Head office map"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "tax": "Tax ID"
+  }
+}
