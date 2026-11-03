@@ -1,9 +1,11 @@
 {
-  // Cloudflare Workers static-assets config (used if deployed as a Worker instead of Pages).
-  // Build: node build.mjs   Deploy: npx wrangler deploy
+  // Cloudflare Worker config. Build: node build.mjs   Deploy: npx wrangler deploy
   "name": "tni-website",
+  "main": "worker/index.mjs",
   "compatibility_date": "2026-10-01",
   "assets": {
-    "directory": "./dist"
-  }
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "observability": { "enabled": true }
 }

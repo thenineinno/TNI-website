@@ -37,10 +37,38 @@
     s.onerror = () => { clearTimeout(timer); fail(); };
     document.body.appendChild(s);
   };
+  // Preferred: latest posts from our own /api/fb-posts (Cloudflare Worker + Graph API),
+  // rendered as cards. If that isn't configured or fails, fall back to the Facebook embed.
+  const sec = document.querySelector('.updates');
+  const fmt = (d) => { try { return new Intl.DateTimeFormat(sec.dataset.lang === 'th' ? 'th-TH' : 'en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(d)); } catch { return ''; } };
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+  const renderPosts = (posts) => {
+    const grid = el('ul', 'fb-posts');
+    posts.forEach((p) => {
+      const li = el('li', 'post');
+      const a = el('a', 'post-link'); a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+      if (p.image) { const img = el('img', 'post-img'); img.src = p.image; img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; a.append(img); }
+      const body = el('div', 'post-body');
+      body.append(el('time', 'post-date', fmt(p.created)));
+      body.lastChild.dateTime = p.created;
+      if (p.message) body.append(el('p', 'post-text', p.message));
+      body.append(el('span', 'post-more', sec.dataset.readMore + ' →'));
+      a.append(body); li.append(a); grid.append(li);
+    });
+    const more = el('a', 'btn btn-ghost fb-all', sec.dataset.more); more.href = sec.dataset.fbUrl; more.target = '_blank'; more.rel = 'noopener';
+    box.replaceWith(grid); grid.after(more);
+    sec.classList.add('has-posts');
+  };
+  const start = () => {
+    fetch('/api/fb-posts', { headers: { accept: 'application/json' } })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((d) => (d.posts && d.posts.length ? renderPosts(d.posts) : loadFb()))
+      .catch(() => loadFb());
+  };
   if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { loadFb(); io.disconnect(); } }), { rootMargin: '400px' });
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { start(); io.disconnect(); } }), { rootMargin: '400px' });
     io.observe(box);
-  } else loadFb();
+  } else start();
 
   // Reveal on scroll
   const els = document.querySelectorAll('.section h2, .card, .pillar, .contact-row, .table-wrap');

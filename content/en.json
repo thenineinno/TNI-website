@@ -169,7 +169,9 @@
     "title": "Latest from Facebook",
     "lead": "Follow our projects, activities and announcements. New posts on our page appear here automatically.",
     "follow": "Follow us on Facebook",
-    "cardText": "Follow our page so you never miss our latest projects and news."
+    "cardText": "Follow our page so you never miss our latest projects and news.",
+    "more": "See all posts on Facebook",
+    "readMore": "Read on Facebook"
   },
   "contact": {
     "kicker": "Contact",

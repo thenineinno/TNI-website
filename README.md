@@ -35,3 +35,9 @@ The "Updates" section embeds the official Facebook Page Plugin for `facebookUrl`
 2. Add the site to Google Search Console and submit `/sitemap.xml`.
 3. Create or claim a Google Business Profile for the Hat Yai office (this matters most for local search).
 4. Add the website link to the Facebook page.
+
+## Facebook posts as cards (optional, recommended)
+`worker/index.mjs` exposes `/api/fb-posts`, which reads the latest Page posts from the
+Facebook Graph API using the Cloudflare secret `FB_PAGE_TOKEN` (a non-expiring Page access
+token) and caches them for 15 minutes. The homepage shows them as cards. Without the secret,
+the site falls back to the standard Facebook embed.

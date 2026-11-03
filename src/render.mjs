@@ -192,7 +192,7 @@ ${ld(site)}
   </section>
 
   <section id="updates" class="section">
-    <div class="wrap updates">
+    <div class="wrap updates" data-read-more="${esc(t.updates.readMore)}" data-more="${esc(t.updates.more)}" data-fb-url="${esc(cfg.facebookUrl)}" data-lang="${t.lang}">
       <div class="updates-copy">
         <p class="kicker">${esc(t.updates.kicker)}</p>
         <h2>${esc(t.updates.title)}</h2>
