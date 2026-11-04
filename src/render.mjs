@@ -163,7 +163,7 @@ ${ld(site)}
         </div>
         <ul class="stats">${t.hero.stats.map((x) => `<li><strong>${esc(x.n)}</strong><span>${esc(x.l)}</span></li>`).join('')}</ul>
       </div>
-      <div class="hero-art" aria-hidden="true">${MARK}</div>
+      ${cfg.heroImage ? `<div class="hero-art hero-photo"><img src="${esc(cfg.heroImage)}" alt="${esc(t.hero.imageAlt)}" width="900" height="1100" fetchpriority="high"></div>` : `<div class="hero-art" aria-hidden="true">${MARK}</div>`}
     </div>
   </section>
 
@@ -186,7 +186,7 @@ ${ld(site)}
       <p class="kicker">${esc(t.services.kicker)}</p>
       <h2>${esc(t.services.title)}</h2>
       <ul class="cards">
-        ${t.services.items.map((s) => `<li class="card">${svcIcon(s.icon)}<h3>${txt(s.title)}</h3><p>${txt(s.text)}</p></li>`).join('\n        ')}
+        ${t.services.items.map((s) => `<li class="card${s.image ? ' has-photo' : ''}">${s.image ? `<img class="card-photo" src="${esc(s.image)}" alt="${txt(s.title)}" loading="lazy" width="600" height="400">` : svcIcon(s.icon)}<h3>${txt(s.title)}</h3><p>${txt(s.text)}</p></li>`).join('\n        ')}
       </ul>
     </div>
   </section>

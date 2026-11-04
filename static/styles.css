@@ -58,6 +58,9 @@ h1 .hl{color:var(--green-dark);background:linear-gradient(transparent 68%,rgba(1
 .btn-light{background:var(--green-light);color:var(--ink);margin-top:8px}
 .hero-art{position:relative}
 .hero-art .mark{width:100%;height:auto;max-width:420px;margin-left:auto;filter:drop-shadow(0 30px 50px rgba(53,112,69,.18));animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-photo img{width:100%;height:auto;max-width:400px;margin-left:auto;aspect-ratio:4/5;object-fit:cover;border-radius:20px;box-shadow:16px 16px 0 var(--green-light)}
+.card.has-photo{padding-top:0;overflow:hidden}
+.card-photo{width:calc(100% + 56px);height:auto;max-width:none;margin:0 -28px 20px;aspect-ratio:3/2;object-fit:cover}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}}
 
 .stats{list-style:none;margin:44px 0 0;padding:28px 0 0;border-top:1px solid var(--line);display:flex;gap:40px;flex-wrap:wrap}

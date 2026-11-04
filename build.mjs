@@ -1,7 +1,7 @@
 // Static site generator for Nine Innovation — no dependencies.
 // Usage: node build.mjs        -> writes ./dist
 //        node build.mjs --strict  -> fails if any TODO placeholder remains
-import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, rmSync, cpSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { render } from './src/render.mjs';
@@ -24,6 +24,12 @@ const scan = (obj, path) => {
 };
 scan(cfg, 'site.config');
 langs.forEach((t) => scan(t, `content/${t.lang}`));
+
+// Warn about image paths that don't exist in static/ (a common typo when editing on GitHub).
+const imgs = [cfg.heroImage, ...langs.flatMap((t) => t.services.items.map((s) => s.image))].filter(Boolean);
+for (const src of new Set(imgs))
+  if (!/^https?:/.test(src) && !existsSync(join(root, 'static', src.replace(/^\//, ''))))
+    console.warn(`⚠  Image not found: ${src} (upload it to static/assets/ and check the spelling, including .jpg/.png)`);
 
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });

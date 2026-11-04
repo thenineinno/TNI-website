@@ -9,6 +9,8 @@ node build.mjs
 Output goes to `dist/`. Upload that folder to any static host (Netlify, Vercel, Cloudflare Pages, GitHub Pages, or regular web hosting).
 
 ## Edit content
+Step-by-step guide for non-developers (text, photos, icons): see [EDITING.md](EDITING.md).
+
 | What | File |
 |---|---|
 | Domain, phones, email, address, Facebook URL, map, tax ID | `site.config.json` |

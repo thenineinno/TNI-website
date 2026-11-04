@@ -39,7 +39,8 @@
         "n": "7",
         "l": "Southern provinces"
       }
-    ]
+    ],
+    "imageAlt": "Lifts and escalators by The Nine Innovation"
   },
   "about": {
     "kicker": "About",
@@ -65,22 +66,26 @@
       {
         "icon": "lift",
         "title": "Lifts",
-        "text": "Supply and installation of passenger lifts, glass/panoramic lifts, freight lifts, hospital bed lifts, car lifts, home lifts and dumbwaiters."
+        "text": "Supply and installation of passenger lifts, glass/panoramic lifts, freight lifts, hospital bed lifts, car lifts, home lifts and dumbwaiters.",
+        "image": ""
       },
       {
         "icon": "escalator",
         "title": "Escalators",
-        "text": "Supply and installation of escalators, with maintenance, modernization and ongoing after-sales service by experienced specialists."
+        "text": "Supply and installation of escalators, with maintenance, modernization and ongoing after-sales service by experienced specialists.",
+        "image": ""
       },
       {
         "icon": "gear",
         "title": "Spare parts & maintenance",
-        "text": "Lift and escalator spare parts, plus modernization of older lifts for more efficient and safer operation."
+        "text": "Lift and escalator spare parts, plus modernization of older lifts for more efficient and safer operation.",
+        "image": ""
       },
       {
         "icon": "hand",
         "title": "After-sales service",
-        "text": "Routine inspections, consulting and emergency call-outs by our expert team."
+        "text": "Routine inspections, consulting and emergency call-outs by our expert team.",
+        "image": ""
       }
     ]
   },
