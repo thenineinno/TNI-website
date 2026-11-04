@@ -7,7 +7,6 @@ const txt = (s) => esc(clean(s));
 const filled = (s) => s && !isTodo(s);
 
 const MARK = `<svg class="mark" viewBox="0 0 428 390" aria-hidden="true" focusable="false"><rect width="428" height="390" fill="var(--green-light)"/><path fill="var(--green-dark)" d="M86 0h256v256zM86 134l256 256H86z"/></svg>`;
-const WORD = `<svg class="word" viewBox="517 0 813 390" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M517 0h73v390h-73z"/><path d="M679 0h85l157 261V0h73v390h-78L751 114v276h-72z"/><path d="M1082 0h248v70h-174v90h156v70h-156v90h174v70h-248z"/></g></svg>`;
 
 const ICONS = {
   phone: '<path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/>',
@@ -40,10 +39,10 @@ export function render(t, cfg, langs) {
     name: cfg.brandName,
     alternateName: ['ไนน์ อินโนเวชั่น', 'NINE Innovation'],
     url: cfg.siteUrl + '/',
-    logo: `${cfg.siteUrl}/assets/icon-512.png`,
+    logo: `${cfg.siteUrl}/assets/logo-square.png`,
     image: `${cfg.siteUrl}/assets/og-image.png`,
     description: t.meta.description,
-    sameAs: [cfg.facebookUrl],
+    sameAs: [cfg.facebookUrl, ...(filled(cfg.lineId) ? [`https://line.me/R/ti/p/${cfg.lineId}`] : [])],
   };
   const phones = (cfg.phones || []).filter(filled);
   org['@type'] = ['Organization', 'LocalBusiness'];
@@ -64,7 +63,7 @@ export function render(t, cfg, langs) {
   org.areaServed = (cfg.areaServed || []).map((n) => ({ '@type': 'AdministrativeArea', name: n }));
   org.knowsAbout = ['Elevator installation', 'Elevator maintenance', 'Elevator modernization', 'Escalator installation', 'Escalator maintenance', 'Elevator spare parts'];
   org.contactPoint = phones.map((tel) => ({
-    '@type': 'ContactPoint', contactType: 'customer service', telephone: '+66-' + tel.replace(/^0/, ''),
+    '@type': 'ContactPoint', contactType: 'customer service', telephone: '+66 ' + tel.replace(/^0/, ''),
     email: cfg.email, areaServed: 'TH', availableLanguage: ['Thai', 'English'],
   }));
   org.hasOfferCatalog = {
@@ -137,7 +136,7 @@ ${ld(site)}
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
-    <a class="brand" href="${t.path}" aria-label="${esc(cfg.brandName)}">${MARK}${WORD}</a>
+    <a class="brand" href="${t.path}"><img src="/assets/logo-full.png" alt="${esc(legalName)}" width="702" height="407"></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav"><span class="sr">${esc(t.nav.menu)}</span><span class="bars" aria-hidden="true"></span></button>
     <nav id="nav" class="nav" aria-label="${esc(t.nav.menu)}">
       <a href="#about">${esc(t.nav.about)}</a>
@@ -161,7 +160,7 @@ ${ld(site)}
           <a class="btn btn-primary" href="#contact">${esc(t.hero.ctaPrimary)}</a>
           <a class="btn btn-ghost" href="#services">${esc(t.hero.ctaSecondary)}</a>
         </div>
-        <ul class="stats">${t.hero.stats.map((x) => `<li><strong>${esc(x.n)}</strong><span>${esc(x.l)}</span></li>`).join('')}</ul>
+        <ul class="stats">${t.hero.stats.filter((x) => !x.hidden).map((x) => `<li><strong>${esc(x.n)}</strong><span>${esc(x.l)}</span></li>`).join('')}</ul>
       </div>
       ${cfg.heroImage ? `<div class="hero-art hero-photo"><img src="${esc(cfg.heroImage)}" alt="${esc(t.hero.imageAlt)}" width="900" height="1100" fetchpriority="high"></div>` : `<div class="hero-art" aria-hidden="true">${MARK}</div>`}
     </div>
@@ -171,12 +170,12 @@ ${ld(site)}
     <div class="wrap about">
       <div>
         <p class="kicker">${esc(t.about.kicker)}</p>
-        <h2>${esc(t.about.title)}</h2>
+        <h2 class="about-title">${esc(t.about.title)}</h2>
         ${t.about.body.map((b) => `<p class="body">${esc(b)}</p>`).join('\n        ')}
       </div>
       <div class="pillars">
-        <div class="pillar"><span class="num">01</span><h3>${esc(t.about.visionTitle)}</h3><p class="quote">“${esc(t.about.vision)}”</p></div>
-        <div class="pillar"><span class="num">02</span><h3>${esc(t.about.missionTitle)}</h3><ul class="ticks">${t.about.mission.map((m) => `<li>${esc(m)}</li>`).join('')}</ul></div>
+        <div class="pillar"><h3>${esc(t.about.visionTitle)}</h3><p class="quote">“${esc(t.about.vision)}”</p></div>
+        <div class="pillar"><h3>${esc(t.about.missionTitle)}</h3><ul class="ticks">${t.about.mission.map((m) => `<li>${esc(m)}</li>`).join('')}</ul></div>
       </div>
     </div>
   </section>
@@ -197,12 +196,12 @@ ${ld(site)}
         <p class="kicker">${esc(t.updates.kicker)}</p>
         <h2>${esc(t.updates.title)}</h2>
         <p class="body">${txt(t.updates.lead)}</p>
-        <a class="btn btn-primary" href="${esc(cfg.facebookUrl)}" target="_blank" rel="noopener">${icon('facebook')}${esc(t.updates.follow)}</a>
+        <a class="btn btn-primary" href="${esc(cfg.facebookUrl)}" target="_blank" rel="noopener">${esc(t.updates.follow)}</a>
       </div>
       <div class="fb-frame" data-fb-locale="${t.locale}">
         <div class="fb-card">
           ${MARK}
-          <p class="fb-name">${esc(cfg.brandName)}</p>
+          <p class="fb-name">${esc(cfg.facebookName)}</p>
           <p class="fb-sub">${icon('facebook')}Facebook</p>
           <p class="fb-text">${esc(t.updates.cardText)}</p>
           <a class="btn btn-primary" href="${esc(cfg.facebookUrl)}" target="_blank" rel="noopener">${esc(t.updates.follow)}</a>
@@ -237,25 +236,24 @@ ${ld(site)}
         <p class="kicker">${esc(t.contact.kicker)}</p>
         <h2>${esc(t.contact.title)}</h2>
         <p class="body">${esc(t.contact.lead)}</p>
-        <a class="btn btn-light" href="${esc(cfg.messengerUrl)}" target="_blank" rel="noopener">${esc(t.contact.messenger)}</a>
+        ${filled(cfg.googleMapsEmbedUrl) ? `<iframe class="map" src="${esc(cfg.googleMapsEmbedUrl)}" title="${esc(t.contact.map)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>` : ''}
       </div>
       <address>
         <ul class="contact-list">
           <li class="contact-row">${icon('phone')}<div><span class="label">${esc(t.contact.phone)}</span><span class="multi">${telLinks}</span></div></li>
+          ${filled(cfg.lineId) ? row('line', t.contact.line, cfg.lineId, `https://line.me/R/ti/p/${encodeURIComponent(cfg.lineId)}`) : ''}
           ${row('email', t.contact.email, cfg.email, `mailto:${cfg.email}`)}
           ${row('address', t.contact.address, address)}
-          ${row('address', t.contact.branch, t.contact.branchText)}
-          ${row('facebook', t.contact.facebook, cfg.brandName, cfg.facebookUrl)}
+          ${row('facebook', t.contact.facebook, cfg.facebookName, cfg.facebookUrl)}
         </ul>
       </address>
     </div>
-    ${filled(cfg.googleMapsEmbedUrl) ? `<div class="wrap"><iframe class="map" src="${esc(cfg.googleMapsEmbedUrl)}" title="${esc(t.contact.map)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>` : ''}
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <img src="/assets/logo.svg" alt="The Nine Innovation" width="160" height="66" loading="lazy">
+    <img src="/assets/logo-full.png" alt="${esc(legalName)}" width="702" height="407" loading="lazy">
     <p>© ${year} ${esc(legalName)} · ${esc(t.footer.tax)} ${esc(cfg.taxId)}<br>${esc(t.footer.rights)}</p>
   </div>
 </footer>

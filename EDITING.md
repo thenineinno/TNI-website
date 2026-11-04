@@ -12,7 +12,7 @@ live in about 1–2 minutes. No software to install.
 |---|---|
 | Thai text (the main site) | `content/th.json` |
 | English text | `content/en.json` |
-| Phone, email, address, Facebook link, map, tax ID | `site.config.json` |
+| Phone, LINE ID, email, address, Facebook link & name, map, tax ID | `site.config.json` |
 
 **Steps**
 1. Open the file on GitHub → click the **pencil icon ✏️** (top right of the file).
@@ -42,6 +42,18 @@ Always change **both** `th.json` and `en.json` so the two languages match.
 - If the site doesn't update after a commit: Cloudflare → **Workers & Pages → tni-website → Deployments** →
   open the failed build to see the line with the error. Or go to the file's **History** on GitHub and
   undo your last change.
+
+### Hide or show a number in the headline area (100+, 38, 14)
+Each number in `hero` → `stats` can be switched off and on:
+```json
+{ "n": "38", "l": "ตัวลิฟต์ที่ติดตั้งและปรับปรุง", "hidden": true }
+```
+`"hidden": true` hides it. Change to `false` (or delete `, "hidden": true`) to show it again.
+Do the same in **both** `th.json` and `en.json`.
+
+### Phone numbers
+In `site.config.json`, `"phones": ["083 839 4789"]`. For a second number:
+`"phones": ["083 839 4789", "0XX XXX XXXX"]`.
 
 ### Add a project to the table
 In `projects` → `items`, copy one block, paste it after the last one, add a comma between them, and edit:
@@ -79,7 +91,9 @@ Upload a new file with **exactly the same name** (e.g. `og-image.png`). GitHub r
 | File in `static/assets/` | Used for |
 |---|---|
 | `og-image.png` (1200×630) | Preview picture when the link is shared on Facebook/LINE |
-| `logo.svg`, `mark.svg` | Logo in the footer / green "N" mark |
+| `logo-full.png` | Company logo in the header and footer |
+| `logo-square.png` | Logo Google shows in search results |
+| `mark.svg` | Green "N" mark (hero area and Facebook card) |
 | `icon-512.png`, `apple-touch-icon.png`, `../favicon.ico` | Browser tab & phone home-screen icons |
 
 ---

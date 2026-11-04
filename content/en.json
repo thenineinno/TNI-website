@@ -28,15 +28,16 @@
     "ctaSecondary": "Our services",
     "stats": [
       {
-        "n": "10+",
+        "n": "100+",
         "l": "Projects that trust us"
       },
       {
         "n": "38",
-        "l": "Lift units installed & modernized"
+        "l": "Lift units installed & modernized",
+        "hidden": true
       },
       {
-        "n": "7",
+        "n": "14",
         "l": "Southern provinces"
       }
     ],
@@ -48,7 +49,7 @@
     "body": [
       "The Nine Innovation Co., Ltd. was founded to provide installation, modernization, repair and maintenance of lifts and escalators, including freight lifts and related spare parts.",
       "Our head office is in Hat Yai, Songkhla, with a branch in Phuket and a service team covering all of Southern Thailand.",
-      "In 2025 we serve lifts and escalators of many brands and types throughout the southern region."
+      "We serve lifts and escalators of many brands and types across Southern Thailand."
     ],
     "visionTitle": "Vision",
     "vision": "To be the region's leading lift and escalator service provider, with quality, safety and customer satisfaction at our core.",
@@ -66,7 +67,7 @@
       {
         "icon": "lift",
         "title": "Lifts",
-        "text": "Supply and installation of passenger lifts, glass/panoramic lifts, freight lifts, hospital bed lifts, car lifts, home lifts and dumbwaiters.",
+        "text": "Supply and installation of lifts such as passenger lifts, glass lifts, freight lifts, bed lifts, car lifts, home lifts and dumbwaiters.",
         "image": ""
       },
       {
@@ -84,7 +85,7 @@
       {
         "icon": "hand",
         "title": "After-sales service",
-        "text": "Routine inspections, consulting and emergency call-outs by our expert team.",
+        "text": "Inspections, monthly maintenance and consulting, plus emergency call-outs by our expert team.",
         "image": ""
       }
     ]
@@ -92,7 +93,7 @@
   "projects": {
     "kicker": "Projects",
     "title": "Track record",
-    "lead": "Some of the hospitals, hotels and shopping centres across Southern Thailand that trust us.",
+    "lead": "A selection of clients who trust us.",
     "cols": {
       "no": "No.",
       "name": "Project",
@@ -172,7 +173,7 @@
   "updates": {
     "kicker": "Updates",
     "title": "Latest from Facebook",
-    "lead": "Follow our projects, activities and announcements. New posts on our page appear here automatically.",
+    "lead": "Follow our projects, activities and latest announcements.",
     "follow": "Follow us on Facebook",
     "cardText": "Follow our page so you never miss our latest projects and news.",
     "more": "See all posts on Facebook",
@@ -181,18 +182,16 @@
   "contact": {
     "kicker": "Contact",
     "title": "Contact & location",
-    "lead": "Request a quote, book an inspection or report a breakdown — reach us through any channel below.",
+    "lead": "Request a quote, book an inspection or report a lift or escalator breakdown — contact us now.",
     "phone": "Phone",
+    "line": "LINE",
     "email": "Email",
-    "address": "Head office",
-    "branch": "Branch",
-    "branchText": "Phuket",
+    "address": "Address",
     "facebook": "Facebook",
-    "messenger": "Message us on Messenger",
     "map": "Head office map"
   },
   "footer": {
-    "rights": "All rights reserved",
+    "rights": "copyright",
     "tax": "Tax ID"
   }
 }
